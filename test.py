@@ -11,8 +11,8 @@ binance = magic_bomb(api_key, api_secret)
 
 # print(binance.get_istorical_trades())
 # print(binance.get_balance_pair('CHZUSDT'))
-# binance.get_coins()
-binance.account()
+binance.get_coins()
+# print(binance.total_balance())
 
 
 # websocket = websocket(api_key, api_secret)

@@ -16,12 +16,16 @@ class magic_bomb:
             print(e.message)
     def account(self):
         account = self.client.get_account()
-        # for value in account['balances']:
-            # if (float(value['free']) != float(0)) or (float(value['locked']) != float(0)):
-            #     print(value)
-        print(account)
+        all_values = []
+        account_values = []
+        for value in account['balances']:
+            if (float(value['free']) != float(0)) or (float(value['locked']) != float(0)):
+                account_values.append(value)
+            all_values.append(value['asset'])
+        # return json.dumps({"all_values": all_values,"count_values": account_values})
+        return all_values
     # def get_pairs(self):
-    def get_istorical_trades(self):
+    def get_historical_trades(self):
         trades = self.client.get_historical_trades(symbol='CHZBUSD')  
         print(trades)  
     def get_all_orders(self, pair):
@@ -51,7 +55,15 @@ class magic_bomb:
         for coin in details:
             coins.append(coin['symbol'])
         print(coins)
-
+    def total_balance(self):
+        pairs = self.account()
+        # print(values['all_values'])
+        # pairs = values['all_values']
+        balances = []
+        for pair in pairs:
+            balances.append(self.get_balance_pair(pair))
+        return balances
+        
     # def get_all_coins(self):
     #     coins = self.client.get_all_coins_info()
     #     print(coins)
