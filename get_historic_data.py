@@ -5,8 +5,8 @@ from pprint import pprint
 from datetime import datetime
 import matplotlib.pyplot as plt
 
-api_key="AY5bm2HEn6w5OUAAhCQzt1Ifrwl5EnLGKRAJAf9ZTpLsQfc18KrAQMCxobiQYH5y"
-api_secret="cZREtIOeWVYCo3Jsa8kgMRBMiRlVsdigawMklBB5fFKkGuU04xZjFwdyFkoxWKF3"
+api_key=""
+api_secret=""
 binance = magic_bomb(api_key, api_secret)
 
 klines = binance.get_historical_klines('CHZUSDT','5 days ago UTC')
